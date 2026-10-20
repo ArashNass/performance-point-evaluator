@@ -243,10 +243,14 @@ details.advanced[open] summary:after{content:"−"}
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:url" content="https://arashnassirpour.com/performance-point-evaluator/"><meta property="og:image" content="https://arashnassirpour.com/performance-point-evaluator/og-image.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Performance Point Evaluator","description":"Evaluate seismic performance points using the N2 capacity spectrum method, ADRS plots, code spectra, earthquake records and pushover curves.","url":"https://arashnassirpour.com/performance-point-evaluator/","applicationCategory":"DesignApplication","operatingSystem":"Any","isAccessibleForFree":true,"author":{"@type":"Person","name":"Arash Nassirpour","url":"https://arashnassirpour.com/about/"}}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0WERZ6WKQY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0WERZ6WKQY");</script><style>
+<script defer src="/assets/analytics.js?v=2"></script><style>
 /* phones: 16px form fields stop iOS Safari zooming the page in when one is tapped */
 @media (max-width:760px){input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]),select,textarea{font-size:16px!important}}
 </style>
+
+<script defer src="/assets/engagement.js?v=1"></script>
+<script type="module" src="/assets/vitals.js?v=1"></script>
+<link rel="stylesheet" href="/assets/tool-guide.css?v=1">
 </head>
 <body>
 <header class="site-hd"><style>
@@ -342,7 +346,7 @@ details.advanced[open] summary:after{content:"−"}
     <div class="top-actions">
       <span class="chip">N2 method</span>
       <span class="chip">EC8 · ASCE 7</span>
-      <button class="small-btn" id="permalinkBtn" type="button">Copy link to this case</button>
+      <button class="small-btn" id="permalinkBtn" data-track-action="share_requested" type="button">Copy link to this case</button>
     </div>
   </div>
 </header>
@@ -477,7 +481,7 @@ details.advanced[open] summary:after{content:"−"}
     </section>
 
     <div class="runbar">
-      <button class="primary-btn" id="computeBtn" type="button">Update performance assessment</button>
+      <button class="primary-btn" id="computeBtn" data-track-action="calculate_requested" type="button">Update performance assessment</button>
       <button class="reset-btn" id="resetBtn" type="button">Reset example data</button>
     </div>
   </aside>
@@ -499,13 +503,13 @@ details.advanced[open] summary:after{content:"−"}
     </div>
 
     <article class="panel chart-card">
-      <div class="chart-header"><div class="chart-title"><h2>Capacity–demand diagram</h2><p>ADRS format with all selected performance-state boundaries shown as drift-based displacement bands.</p></div><div class="chart-actions"><button class="small-btn" data-download="adrsChart" data-name="performance-point-adrs" type="button">Download SVG</button></div></div>
+      <div class="chart-header"><div class="chart-title"><h2>Capacity–demand diagram</h2><p>ADRS format with all selected performance-state boundaries shown as drift-based displacement bands.</p></div><div class="chart-actions"><button class="small-btn" data-track-action="export_requested" data-download="adrsChart" data-name="performance-point-adrs" type="button">Download SVG</button></div></div>
       <div class="legend"><span class="legend-item"><i class="legend-line" style="background:var(--demand)"></i>Elastic demand</span><span class="legend-item"><i class="legend-line" style="background:var(--inelastic)"></i>Reduced demand</span><span class="legend-item"><i class="legend-line" style="background:var(--capacity)"></i>Capacity</span><span class="legend-item"><i class="legend-dot" style="background:var(--point)"></i>Performance point</span><span class="legend-item">Background bands = threshold states</span></div>
       <div class="chart-wrap"><svg id="adrsChart" viewBox="0 0 900 440" role="img" aria-label="ADRS capacity demand chart"></svg></div>
     </article>
 
     <article class="panel chart-card">
-      <div class="chart-header"><div class="chart-title"><h2>Pushover curve and performance states</h2><p>Roof displacement thresholds are plotted directly on the capacity curve so every state remains visible.</p></div><div class="chart-actions"><button class="small-btn" data-download="pushoverChart" data-name="pushover-thresholds" type="button">Download SVG</button></div></div>
+      <div class="chart-header"><div class="chart-title"><h2>Pushover curve and performance states</h2><p>Roof displacement thresholds are plotted directly on the capacity curve so every state remains visible.</p></div><div class="chart-actions"><button class="small-btn" data-track-action="export_requested" data-download="pushoverChart" data-name="pushover-thresholds" type="button">Download SVG</button></div></div>
       <div class="legend"><span class="legend-item"><i class="legend-line" style="background:var(--capacity)"></i>Pushover</span><span class="legend-item"><i class="legend-line" style="background:#8d98aa"></i>Equal-energy bilinear</span><span class="legend-item"><i class="legend-dot" style="background:var(--point)"></i>Target displacement</span></div>
       <div class="chart-wrap"><svg id="pushoverChart" viewBox="0 0 900 410" role="img" aria-label="Pushover curve with performance thresholds"></svg></div>
       <div class="chart-note" id="idealizeNote"></div>
@@ -513,12 +517,12 @@ details.advanced[open] summary:after{content:"−"}
 
     <div class="secondary-grid">
       <article class="panel chart-card">
-        <div class="chart-header"><div class="chart-title"><h2>Demand spectrum</h2><p>Elastic spectral acceleration and the effective-period demand.</p></div><div class="chart-actions"><button class="small-btn" data-download="spectrumChart" data-name="demand-spectrum" type="button">Download SVG</button></div></div>
+        <div class="chart-header"><div class="chart-title"><h2>Demand spectrum</h2><p>Elastic spectral acceleration and the effective-period demand.</p></div><div class="chart-actions"><button class="small-btn" data-track-action="export_requested" data-download="spectrumChart" data-name="demand-spectrum" type="button">Download SVG</button></div></div>
         <div class="legend" id="spectrumLegend"><span class="legend-item"><i class="legend-line" style="background:var(--demand)"></i>Elastic demand Se(T)</span><span class="legend-item"><i class="legend-dot" style="background:var(--point)"></i>Effective-period demand</span><span class="legend-item hidden" id="spectrumQLegend"><i class="legend-line" style="background:var(--design);border-top:2px dashed var(--design)"></i>Design spectrum Se/q (EC8 reference only)</span></div>
         <div class="chart-wrap compact"><svg id="spectrumChart" viewBox="0 0 620 330" role="img" aria-label="Demand response spectrum"></svg></div>
       </article>
       <article class="panel chart-card">
-        <div class="chart-header"><div class="chart-title"><h2>Ground-motion time history</h2><p id="recordChartSubtitle">Shown when a recorded acceleration time history is active.</p></div><div class="chart-actions"><button class="small-btn" data-download="recordChart" data-name="ground-motion" type="button">Download SVG</button></div></div>
+        <div class="chart-header"><div class="chart-title"><h2>Ground-motion time history</h2><p id="recordChartSubtitle">Shown when a recorded acceleration time history is active.</p></div><div class="chart-actions"><button class="small-btn" data-track-action="export_requested" data-download="recordChart" data-name="ground-motion" type="button">Download SVG</button></div></div>
         <div class="chart-wrap compact" id="recordChartWrap"><svg id="recordChart" viewBox="0 0 620 330" role="img" aria-label="Ground motion acceleration time history"></svg></div>
       </article>
     </div>
@@ -705,6 +709,7 @@ function runCompute(){
     const periodOutOfRange=Tstar>4;
     lastResult={pts,capPts,bi,Tstar,Sae,Say,R,mu,dtStar,dtRoof,drift,SaPP,demand,Gamma,mStar,H,thresholdModel,classification,capacityExceeded,de,periodOutOfRange};
     updateUI(lastResult);
+    window.PlatformMetrics?.complete('calculate');
   }catch(err){showToast(err.message||String(err));}
 }
 let busyTimer=null;
@@ -827,7 +832,7 @@ function setSegmentValue(id,key,value){
 }
 function downloadText(filename,text){
   const blob=new Blob([text],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();window.PlatformMetrics?.emit('export_ready',{format:'csv'});setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function templateCsv(kind){
   if(kind==='spectrum')return{filename:'response-spectrum-sample.csv',text:'period_s,Sa_g\n0.00,0.25\n0.10,0.55\n0.20,0.70\n0.50,0.70\n1.00,0.40\n2.00,0.18\n3.00,0.09\n4.00,0.05\n'};
@@ -869,7 +874,7 @@ function setupFiles(){
     }catch(err){uploadedRecord=null;$('recordFileName').textContent=err.message;$('recordFileName').className='file-status error';showToast(err.message);}
   });
 }
-function downloadSvg(id,name){const svg=$(id);const clone=svg.cloneNode(true);clone.setAttribute('xmlns','http://www.w3.org/2000/svg');const blob=new Blob([new XMLSerializer().serializeToString(clone)],{type:'image/svg+xml'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name+'.svg';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+function downloadSvg(id,name){const svg=$(id);const clone=svg.cloneNode(true);clone.setAttribute('xmlns','http://www.w3.org/2000/svg');const blob=new Blob([new XMLSerializer().serializeToString(clone)],{type:'image/svg+xml'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name+'.svg';a.click();window.PlatformMetrics?.emit('export_ready',{format:'svg'});setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
 function resetExample(){
   $('capacityData').value=`0, 0\n900, 0.030\n1650, 0.090\n2050, 0.180\n2200, 0.300\n2230, 0.450\n2150, 0.600`;
   $('capacityUnits').value='kN-m';$('buildingHeight').value=30;$('gammaMDOF').value=1.40;$('effectiveMass').value=1400;
@@ -944,6 +949,7 @@ function init(){
 document.addEventListener('DOMContentLoaded',init);
 })();
 </script>
+<section class="platform-guide" aria-labelledby="platform-guide-title"><h2 id="platform-guide-title">Using performance point evaluation</h2><p>Compare a capacity curve with seismic demand in acceleration–displacement coordinates using the tool’s N2 implementation. Inspect the idealisation, thresholds and capacity-endpoint checks alongside the result.</p><details><summary>Try a worked example</summary><ol><li>Load a built-in capacity example and a demand spectrum.</li><li>Run the calculation and inspect the bilinear idealisation and capacity-endpoint status.</li><li>Change the demand level while keeping capacity fixed, then compare the target displacement.</li></ol></details><nav aria-label="Related tools"><a href="/design-spectrum/">Seismic design spectra</a><a href="/rc-section-designer/">Reinforced concrete sections</a></nav></section>
 <footer class="site-ft"><style>
 .site-ft{background:#0f2350;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0;line-height:normal;font-family:Inter,'Segoe UI',system-ui,sans-serif}
 .site-ft .ft-in{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 24px}
